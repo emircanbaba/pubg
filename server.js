@@ -4,7 +4,7 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const KEY = process.env.KEY || "anon";
+const KEY = "anon";
 const LOG_FILE = path.join(__dirname, "captures.jsonl");
 
 app.set("trust proxy", true);
